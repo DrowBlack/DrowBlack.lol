@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const projects = [
     {
       title: 'Parkour Redone',
-      desc: 'Main Scripter <br> A Parkour Reborn modded game bade by Fynndo, New self made districts, self made announcement system, self made movement fix and way more thing. This game is private bc of being game copy but we are just making it for fun.',
-      year: '2025-2026',
+      desc: 'Main Scripter <br> A Parkour Reborn modded game made by Fynndo, New self made districts, self made announcement system, self made movement fix and way more thing. This game is private bc of being game copy but we are just making it for fun.',
+      year: '2025',
       category: 'all',
       link: 'https://discord.gg/YzkKtBaDQ4',
       images: ['Redone1.png', 'Redone2.png', 'Redone3.png']
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       title: 'VFX Showcase',
       desc: 'Some VFX I made for fun. ill make more soon.',
-      year: '2026',
+      year: '2025',
       category: 'vfx',
       link: 'https://discord.gg/b9VK6UTD69',
       images: ['VFX1.png', 'VFX2.png', 'VFX3.png']
