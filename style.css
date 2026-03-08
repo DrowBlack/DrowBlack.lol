@@ -737,6 +737,23 @@ section::before {
   margin-bottom: 28px;
 }
 
+.half-star {
+  position: relative;
+  display: inline-block;
+  letter-spacing: 0;
+  margin-right: 4px;
+}
+
+.half-star::after {
+  content: '★';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  overflow: hidden;
+  color: inherit;
+}
+
 .testimonial-quote {
   font-size: 0.9rem;
   color: var(--text-secondary);

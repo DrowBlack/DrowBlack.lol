@@ -210,10 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'batusama.webp'
     },
     {
-      quote: "An incredibly talented developer who brings both technical skill and creative vision to every project. Our Discord bot was built exactly to spec with features we didn't even know we needed.",
-      author: 'Chris Lee, Server Owner',
-      rating: 5,
-      image: ''
+      quote: "Kurduğun sistem çok düzenli ve anlaşılır, projede çalışmayı baya kolaylaştırdı Kısa ama etkili bir iş çıkarmışsın Drow.",
+      author: 'itsBigTR',
+      rating: 4.5,
+      image: 'bigtr.webp'
     }
   ];
 
@@ -245,7 +245,16 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.style.transform = `translateX(${slideOut})`;
     }
 
-    const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+      if (r.rating >= i) {
+        stars += '★';
+      } else if (r.rating > i - 1) {
+        stars += '<span class="half-star">☆</span>';
+      } else {
+        stars += '☆';
+      }
+    }
 
     const insertContent = () => {
       carousel.innerHTML = `
