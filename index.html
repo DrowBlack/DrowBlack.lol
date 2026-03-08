@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DrowBlackTw — Game Developer Portfolio</title>
+  <meta name="description" content="DrowBlackTw is a passionate Roblox game developer transforming ideas into immersive gaming experiences through scripting, VFX, video editing, and bot development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== MUSIC PLAYER ===================== -->
+  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+  </div>
+  <div class="music-player" id="musicPlayer">
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+      <svg class="music-icon-play" id="musicIconPlay" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <svg class="music-icon-pause" id="musicIconPause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+    </button>
+    <div class="music-info">
+      <span class="music-label">Now Playing</span>
+      <div class="music-visualizer" id="musicVisualizer">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="music-volume">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      <input type="range" id="volumeSlider" min="0" max="100" value="30" class="volume-slider" />
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">DrowBlackTw</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Service</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#testimonials">Blog</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <a href="#portfolio" class="nav-cta">Explore My Work <span class="arrow-icon">↗</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="topo-bg"></div>
+    <div class="hero-inner">
+      <h1 class="hero-heading">
+        Let's <em>Build</em> Something<br />Extraordinary
+      </h1>
+      <p class="hero-subtext">
+        From concept to deployment, let's transform your vision into reality with<br />immersive Roblox experiences and cutting-edge development
+      </p>
+      <a href="#cta" class="btn btn-primary">Get Started <span class="arrow-icon">↗</span></a>
+
+      <div class="hero-portrait-frame">
+        <img src="images/PP.png" alt="DrowBlackTw" class="portrait-img" />
+      </div>
+
+      <div class="hero-meta">
+        <div class="hero-meta-left">
+          <span class="meta-icon">📍</span>
+          <div>
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Turkey</span>
+          </div>
+        </div>
+        <div class="hero-meta-right">
+          <span class="meta-value">Scroll Down ↓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="topo-bg"></div>
+    <div class="about-inner">
+      <span class="section-badge">● About Us</span>
+      <div class="about-grid">
+        <div class="about-left">
+          <h2 class="section-heading">
+            Crafting Immersive<br />Game Experiences<br />With Passion
+          </h2>
+          <p class="about-contact">DrowBlackAcc@gmail.com</p>
+          <p class="about-experience-years">4 Years of Development Experience</p>
+          <p class="about-experience">Game Developer · VFX Artist · Video Editor · Bot Developer</p>
+          <a href="#cta" class="btn btn-primary">Let's Talk <span class="arrow-icon">↗</span></a>
+        </div>
+        <div class="about-right">
+          <p class="about-bio">
+            I'm DrowBlackTw — a dedicated game developer with over 4 years of hands-on experience building immersive digital worlds. I specialize in Roblox Studio development, crafting complex game mechanics with Luau, designing jaw-dropping VFX, producing polished video edits, and engineering custom bots for community engagement. Every project I take on is an opportunity to deliver something players will remember.
+          </p>
+          <p class="about-tagline">Where creativity meets code — delivering experiences that leave an impact</p>
+          <div class="about-portrait-frame">
+            <img src="images/image3.jpg" alt="DrowBlackTw" class="portrait-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="services" id="services">
+    <div class="topo-bg"></div>
+    <div class="services-inner">
+      <span class="section-badge">● Services</span>
+      <h2 class="section-heading center">
+        Turning Ideas<br />Into Impactful Services
+      </h2>
+      <p class="services-subtext">Professional-grade solutions to elevate your projects from concept to completion</p>
+
+      <div class="year-display">
+        <span class="year-solid">202</span><span class="year-outline">6</span>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Roblox Scripter</h3>
+          <p>Engineering robust game systems, custom mechanics, and optimized gameplay logic using Luau in Roblox Studio</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>VFX Artist</h3>
+          <p>Designing high-fidelity visual effects, particle systems, and cinematic sequences that elevate the player experience</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Bot Developer</h3>
+          <p>Building scalable, feature-rich bots for server management, automation, and seamless community interaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFOLIO ===================== -->
+  <section class="portfolio" id="portfolio">
+    <div class="topo-bg"></div>
+    <div class="portfolio-inner">
+      <span class="section-badge">● Portfolio</span>
+      <div class="portfolio-header">
+        <h2 class="section-heading">A Glimpse Into<br />My Creative World</h2>
+        <p class="portfolio-intro">A curated selection of projects that showcase my approach to game development and creative problem-solving.<br />Each piece represents a commitment to quality, performance, and unforgettable player experiences.</p>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">Roblox Games</button>
+        <button class="filter-btn" data-filter="vfx">VFX Work <span class="arrow-icon">↗</span></button>
+        <button class="filter-btn" data-filter="bots">Bot Projects <span class="arrow-icon">↗</span></button>
+      </div>
+
+      <div class="portfolio-showcase" id="portfolioShowcase">
+        <!-- Project slides rendered by JS -->
+      </div>
+
+      <div class="portfolio-nav">
+        <button class="portfolio-nav-btn" id="nextProject" aria-label="Previous project">←</button>
+        <button class="portfolio-nav-btn" id="prevProject" aria-label="Next project">→</button>
+      </div>
+
+      <a href="https://discord.gg/FNPZk7WDqC" target="_blank" rel="noopener noreferrer" class="discord-panel">
+        <img src="images/portfolioserver.jpg" alt="Discord Server" class="discord-panel-img" />
+        <div class="discord-panel-info">
+          <span class="discord-panel-label">Discord Portfolio Server</span>
+          <span class="discord-panel-name">~DrowBlack's Developer Place~</span>
+        </div>
+        <span class="discord-panel-join">Join Server</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="topo-bg"></div>
+    <div class="testimonials-inner">
+      <span class="section-badge">● Reviews</span>
+      <h2 class="section-heading center">What Clients<br />Are Saying</h2>
+      <p class="testimonials-subtext">
+        Real stories, real results. See how working with me has<br />turned concepts into polished, production-ready experiences
+      </p>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="testimonial-nav">
+        <button class="portfolio-nav-btn" id="prevReview" aria-label="Previous review">←</button>
+        <button class="portfolio-nav-btn" id="nextReview" aria-label="Next review">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA / FOOTER ===================== -->
+  <section class="cta" id="cta">
+    <div class="topo-bg"></div>
+    <div class="cta-inner">
+      <span class="section-badge">● Call To Action</span>
+      <h2 class="section-heading center">Your Next Big Step<br />Is Just A Click Away</h2>
+      <p class="cta-subtext">
+        Let's collaborate and bring your project's full potential to life.<br />It's time to turn your ideas into something extraordinary
+      </p>
+
+      <div class="cta-boxes">
+        <div class="cta-box">
+          <img src="images/PP.png" alt="DrowBlackTw" class="cta-portrait-img" />
+        </div>
+        <span class="cta-plus">+</span>
+        <div class="cta-box cta-box-action">
+          <span>Let's Build Together</span>
+          <span class="arrow-icon">↗</span>
+        </div>
+      </div>
+
+      <p class="cta-bottom-text">
+        Ready to bring your vision to life? Let's start building the experience your audience deserves
+      </p>
+
+      <a href="mailto:DrowBlackAcc@gmail.com" class="btn btn-primary">Let's Build Together <span class="arrow-icon">↗</span></a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 DrowBlackTw. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
