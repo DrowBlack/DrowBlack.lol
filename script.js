@@ -198,19 +198,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // image: filename in images/ folder (e.g. 'client1.jpg'). Leave '' for placeholder.
   const reviews = [
     {
-      quote: "He's very good and talented at coding, i also like his VFX but hes a bit slow, still really good though.",
+      quoteEn: "He's very good and talented at coding, I also like his VFX but he's a bit slow, still really good though.",
+      quoteTr: "Kodlama konusunda çok iyi ve yetenekli, ayrıca VFX'lerini de çok beğeniyorum ama biraz yavaş, yine de gerçekten çok iyi.",
       author: 'Fynndo3d, Creator of Parkour Redone & Momentum',
       rating: 4,
       image: 'fynndo.webp'
     },
     {
-      quote: 'Bence kendini geliştirdin, büyük ihtimalle başarının devamı gelmeye devam eder. işindede kısa sürede başarılar elde etmeye devam ediyorsun.',
+      quoteEn: "I think you have improved yourself, and your success will likely continue. You continue to achieve success in your work in a short time.",
+      quoteTr: "Bence kendini geliştirdin, büyük ihtimalle başarının devamı gelmeye devam eder. İşinde de kısa sürede başarılar elde etmeye devam ediyorsun.",
       author: 'Batusama, Owner Of Risus Network Server',
       rating: 4,
       image: 'batusama.webp'
     },
     {
-      quote: "Kurduğun sistem çok düzenli ve anlaşılır, projede çalışmayı baya kolaylaştırdı Kısa ama etkili bir iş çıkarmışsın Drow.",
+      quoteEn: "The system you set up is very organized and understandable, it made working on the project much easier. You did a short but effective job, Drow.",
+      quoteTr: "Kurduğun sistem çok düzenli ve anlaşılır, projede çalışmayı baya kolaylaştırdı. Kısa ama etkili bir iş çıkarmışsın Drow.",
       author: 'itsBigTR',
       rating: 4.5,
       image: 'bigtr.webp'
@@ -218,6 +221,40 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   let currentReview = 0;
+  let currentLang = 'en';
+
+  function scrambleText(element, newText, duration = 600) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&';
+    const steps = duration / 30;
+    let step = 0;
+    if (element.scrambleInterval) clearInterval(element.scrambleInterval);
+    
+    const startLength = element.innerText.length;
+    const endLength = newText.length;
+    
+    element.scrambleInterval = setInterval(() => {
+      let result = '';
+      const progress = step / steps;
+      const currentLength = Math.floor(startLength + (endLength - startLength) * progress);
+      const limit = Math.floor(progress * endLength);
+      
+      for (let i = 0; i < currentLength; i++) {
+        if (i < limit) {
+          result += newText[i];
+        } else {
+          result += chars[Math.floor(Math.random() * chars.length)];
+        }
+      }
+      
+      element.innerText = result;
+      step++;
+      
+      if (step > steps) {
+        clearInterval(element.scrambleInterval);
+        element.innerText = newText;
+      }
+    }, 30);
+  }
   const carousel = document.getElementById('testimonialCarousel');
 
   function getReviewIndex(offset) {
@@ -264,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ${buildPortraitHTML(reviews[nextIdx], 'small')}
         </div>
         <div class="stars">${stars}</div>
-        <blockquote class="testimonial-quote">"${r.quote}"</blockquote>
+        <blockquote class="testimonial-quote">"<span id="quoteText">${currentLang === 'en' ? r.quoteEn : r.quoteTr}</span>"</blockquote>
         <p class="testimonial-author">– ${r.author}</p>
       `;
       carousel.style.transition = 'none';
@@ -291,6 +328,18 @@ document.addEventListener('DOMContentLoaded', () => {
     currentReview = (currentReview - 1 + reviews.length) % reviews.length;
     renderReview('prev');
   });
+
+  const translateBtn = document.getElementById('translateReview');
+  if (translateBtn) {
+    translateBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'tr' : 'en';
+      const quoteEl = document.getElementById('quoteText');
+      if (quoteEl) {
+        const newText = currentLang === 'en' ? reviews[currentReview].quoteEn : reviews[currentReview].quoteTr;
+        scrambleText(quoteEl, newText, 600);
+      }
+    });
+  }
 
   document.getElementById('nextReview').addEventListener('click', () => {
     currentReview = (currentReview + 1) % reviews.length;
