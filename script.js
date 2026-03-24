@@ -48,6 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // link: URL for "View Detail" button (leave empty '' to hide the button)
   const projects = [
     {
+      id: 1,
+      title: 'Momentum',
+      desc: 'Scripter <br> A parkour game with some cool movement mechanics and stuff, we are making our own maps, scripts, mechanics, lightnings and way more thing this is gonna be peak game is private for now.',
+      year: '2026',
+      category: 'all',
+      link: 'https://discord.gg/tpuxU4b8pV',
+      images: ['Momentum1.png', 'Momentum2.png', 'Momentum3.png']
+    },
+    {
+      id: 2,
       title: 'Parkour Redone',
       desc: 'Main Scripter <br> A Parkour Reborn modded game made by Fynndo, New self made districts, self made announcement system, self made movement fix and way more thing. This game is private bc of being game copy but we are just making it for fun.',
       year: '2025',
@@ -56,30 +66,33 @@ document.addEventListener('DOMContentLoaded', () => {
       images: ['Redone1.png', 'Redone2.png', 'Redone3.png']
     },
     {
-      title: 'Momentum',
-      desc: 'Scripter <br> A parkour game with some cool movement mechanics and stuff, we are making our own maps, scripts, mechanics, lightnings and way more thing this is gonna be peak game is private for now.',
+      id: 3,
+      title: '[MC PVP Edit] - The Beginning',
+      desc: 'The First Edit I Made, I Tried My Best So I Hope You Like It. :)',
       year: '2026',
-      category: 'all',
-      link: '',
-      images: []
+      category: 'edits',
+      link: 'https://www.youtube.com/watch?v=6lgrEYGhcUg',
+      images: ['TheBeginningThumbnail.png']
     },
     {
-      title: 'Discord Backup Bot',
-      desc: 'A discord bot for get server backups and restore servers its storing data inside of you pc so its 100% safe and its allows you to copy one server and paste into any server its copies roles, perms, channels. <br> [Paid contact with me for buy it.]',
-      year: '2025',
-      category: 'bots',
-      link: 'https://discord.gg/b9VK6UTD69',
-      images: ['backup1.png', 'backup2.png', 'backup3.png']
-    },
-    {
+      id: 4,
       title: 'VFX Showcase',
       desc: 'Some VFX I made for fun. ill make more soon.',
       year: '2025',
       category: 'vfx',
       link: 'https://discord.gg/b9VK6UTD69',
       images: ['VFX1.png', 'VFX2.png', 'VFX3.png']
+    },
+    {
+      id: 5,
+      title: 'Discord Backup Bot',
+      desc: 'A discord bot for get server backups and restore servers its storing data inside of you pc so its 100% safe and its allows you to copy one server and paste into any server its copies roles, perms, channels. <br> [Paid contact with me for buy it.]',
+      year: '2025',
+      category: 'bots',
+      link: 'https://discord.gg/b9VK6UTD69',
+      images: ['backup1.png', 'backup2.png', 'backup3.png']
     }
-  ];
+  ].sort((a, b) => a.id - b.id);
 
   let currentProject = 0;
   const showcase = document.getElementById('portfolioShowcase');
@@ -127,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="project-year">${p.year}</span>
           ${viewBtn}
         </div>
-        <div class="project-images">
+        <div class="project-images ${p.images && p.images.length === 1 ? 'single-image' : ''}">
           ${imagesHTML}
         </div>
       `;

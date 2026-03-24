@@ -1,7 +1,5 @@
 <h1>A Portfolio Website For Me.</h1>
 
-Song Made By Me.
-
 idk what i need to write here.
 
 please dont steal :)
