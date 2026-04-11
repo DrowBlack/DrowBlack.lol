@@ -285,6 +285,7 @@ section::before {
   position: relative;
   z-index: 2;
   text-align: center;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -1373,3 +1374,66 @@ section::before {
 .project-real-img {
   cursor: pointer;
 }
+
+/* ===================================================
+   ENTER OVERLAY & BG CANVAS
+   =================================================== */
+.enter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.enter-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.enter-content {
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+.enter-content h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+body.not-entered > *:not(#enterOverlay):not(#bgMusic) {
+  filter: blur(15px);
+  pointer-events: none;
+  transition: filter 0.8s ease;
+}
+
+body.not-entered {
+  overflow: hidden;
+}
+
+.bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+}
+

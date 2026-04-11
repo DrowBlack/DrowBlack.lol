@@ -11,7 +11,17 @@
   <link rel="icon" type="image/jpeg" href="images/icon.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="not-entered">
+
+  <!-- ===================== ENTER OVERLAY ===================== -->
+  <div id="enterOverlay" class="enter-overlay">
+    <div class="enter-content">
+      <h2>Click To Open</h2>
+    </div>
+  </div>
+
+  <!-- ===================== BACKGROUND CANVAS ===================== -->
+  <canvas id="bgCanvas" class="bg-canvas"></canvas>
 
   <!-- ===================== MUSIC PLAYER ===================== -->
   <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
@@ -59,9 +69,9 @@
   <section class="hero" id="hero">
     <div class="topo-bg"></div>
     <div class="hero-inner">
-      <h1 class="hero-heading">
-        Let's <em>Build</em> Something<br />Extraordinary
-      </h1>
+      <h2 class="hero-heading" style="min-height: 2.3em; display: block;">
+        <span id="typed-output"></span>
+      </h2>
       <p class="hero-subtext">
         From concept to deployment, let's transform your vision into reality with<br />immersive Roblox experiences and cutting-edge development
       </p>
@@ -271,6 +281,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -472,6 +472,108 @@ document.addEventListener('DOMContentLoaded', () => {
     isPlaying = false;
   });
 
+  // ---------- ENTER OVERLAY & BG MUSIC ----------
+  const enterOverlay = document.getElementById('enterOverlay');
+  if (enterOverlay) {
+    enterOverlay.addEventListener('click', () => {
+      enterOverlay.classList.add('hidden');
+      document.body.classList.remove('not-entered');
+      
+      // Start music
+      bgMusic.play().then(() => {
+        musicIconPlay.style.display = 'none';
+        musicIconPause.style.display = 'block';
+        musicVisualizer.classList.add('playing');
+        isPlaying = true;
+      }).catch(e => console.log('Music play failed:', e));
+    });
+  }
+
+  // ---------- TYPED.JS ----------
+  if (document.getElementById('typed-output')) {
+    new Typed('#typed-output', {
+      strings: [
+        "Let's <em>Build</em> Something<br />Extraordinary^2000",
+        "A Game Devoloepr^400",
+        "A Game Developer^2000",
+        "A Roblox Scripter^2000",
+        "A VFX Atrits^400",
+        "A VFX Artist^2000",
+        "A Vidoe Ediotr^400",
+        "A Video Editor^2000",
+        "A Bot Developer^2000"
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 300,
+      smartBackspace: true,
+      loop: true
+    });
+  }
+
+  // ---------- BACKGROUND PARTICLES ----------
+  const canvas = document.getElementById('bgCanvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let scrollY = window.scrollY;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedY = Math.random() * 0.5 + 0.1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+      }
+      update(currentScrollY) {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        
+        const scrollDiff = currentScrollY - scrollY;
+        this.y -= scrollDiff * 0.5;
+        
+        if (this.y < 0) this.y += height;
+        if (this.y > height) this.y -= height;
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      const currentScrollY = window.scrollY;
+      
+      particles.forEach(p => {
+        p.update(currentScrollY);
+        p.draw();
+      });
+      
+      scrollY = currentScrollY;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
   // ---------- LIGHTBOX ----------
   const lightboxOverlay = document.getElementById('lightboxOverlay');
   const lightboxImg = document.getElementById('lightboxImg');
